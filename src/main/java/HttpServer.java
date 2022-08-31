@@ -1,6 +1,8 @@
-import javax.print.attribute.URISyntax;
 import java.net.*;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class HttpServer {
     public static void main(String[] args) throws IOException {
@@ -53,7 +55,7 @@ public class HttpServer {
             if (path.startsWith("/hello")){
                 body = "Hello " + pathURL.getQuery().substring(5);
             }else {
-                body = getForm();
+                body = HttpServer.getFile("/index.html");
             }
             outputLine = "HTTP/1.1 200 OK\r\n"
                     + "Content-type: text/html\r\n"
@@ -118,4 +120,26 @@ public class HttpServer {
                     "    </body>\n" +
                     "</html>";
         }
+
+        public static String getFile(String path){
+            StringBuilder output = new StringBuilder();
+            Path file = Paths.get("target/classes/public"+path);
+
+            try (InputStream in = Files.newInputStream(file);
+                 BufferedReader reader =
+                         new BufferedReader(new InputStreamReader(in))) {
+                String line = null;
+                while ((line = reader.readLine()) != null) {
+                    System.out.println(line);
+                    output.append(line);
+                }
+            } catch (IOException x) {
+                System.err.println(x);
+            }
+
+            return output.toString();
+        }
+
+
+
     }
