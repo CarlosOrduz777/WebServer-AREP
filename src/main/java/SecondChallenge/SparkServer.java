@@ -45,7 +45,7 @@ public class SparkServer {
                 return Response.prepareResponse(uri, outputStream);
             }
 
-        } catch (URISyntaxException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
