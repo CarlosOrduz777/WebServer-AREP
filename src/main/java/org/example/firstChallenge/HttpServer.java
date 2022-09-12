@@ -53,18 +53,18 @@ public class HttpServer {
                 this.in = new BufferedReader(new InputStreamReader(this.clientSocket.getInputStream()));
 
                 String input, output;
-                List<String> request = new ArrayList<>();
+                StringBuilder request = new StringBuilder();
 
                 while ((input = in.readLine()) != null) {
                     System.out.println("Received: " + input);
-                    request.add(input);
+                    request.append(input);
 
                     if (input.isEmpty()) {
                         break;
                     }
                 }
 
-                output = SparkServer.get(request, outputStream);
+                output = SparkServer.get(String.valueOf(request), outputStream);
 
                 out.println(output);
                 out.close();

@@ -28,9 +28,9 @@ public class SparkServer {
         httpServer.runServer();
     }
 
-    public static String get(List<String> request, OutputStream outputStream) {
+    public static String get(String request, OutputStream outputStream) {
         try {
-            String contentType = request.get(0).split(" ")[1];
+            String contentType = request.split(" ")[1];
 
             // $
             System.out.println("   ");
