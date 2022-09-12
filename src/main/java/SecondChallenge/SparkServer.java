@@ -30,8 +30,9 @@ public class SparkServer {
 
     public static String get(String request, OutputStream outputStream) {
         try {
+            System.out.println("Request: "+request);
             String contentType = request.split(" ")[1];
-
+            System.out.println("Request: "+contentType);
             // $
             System.out.println("   ");
             System.out.println("   ");
