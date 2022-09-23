@@ -38,7 +38,7 @@ mvn javadoc:javadoc
 - Para Observar la carga de imagenes del reto 1, lo puede hacer en el siguiente link:
 [https://infinite-falls-23475.herokuapp.com/public/index.html](https://infinite-falls-23475.herokuapp.com/public/index.html)
 - La unica imagen existente es image.jpg y la puede observar en el siguiente link:
-[https://infinite-falls-23475.herokuapp.com/public/index.html](https://infinite-falls-23475.herokuapp.com/public/image.jpg)
+[https://infinite-falls-23475.herokuapp.com/public/image.jpg](https://infinite-falls-23475.herokuapp.com/public/image.jpg)
 
 ## Authors
 
